@@ -1,0 +1,9 @@
+.emphasize a,
+.emphasize {
+  font-weight: bold;
+  color: #cc0000;
+}
+
+a[name] {
+	color: #000000;
+}

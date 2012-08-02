@@ -2,7 +2,7 @@
 $(document).ready(function(){
 
   // putting lines by the pre blocks
-  $("pre").each(function(){
+  $("pre:not(.prettyprint)").each(function(){
     var pre = $(this).text().split("\n");
     var lines = new Array(pre.length+1);
     for(var i = 0; i < pre.length; i++) {

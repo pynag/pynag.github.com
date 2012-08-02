@@ -389,7 +389,7 @@ footer .owner p a {
   font-size: 16px;
 }
 
-.markdown-body pre {
+.markdown-body pre:not(.prettyprint) {
   padding: 10px 70px 10px 0;
   margin-left: -20px;
   margin-right: -20px;
@@ -402,7 +402,7 @@ footer .owner p a {
   color: #d6d6d6;
 }
 
-.markdown-body pre.lines {
+.markdown-body pre.lines:not(.prettyprint) {
   font-size: 12px;
   margin:0 10px 0 -20px;
   padding: 10px;
@@ -430,10 +430,10 @@ footer .owner p a {
   margin-bottom: 10px;
 }
 
-.markdown-body li pre,
-.markdown-body li pre.lines,
-.markdown-body dd pre,
-.markdown-body dd pre.lines {
+.markdown-body li pre:not(.prettyprint),
+.markdown-body li pre.lines:not(.prettyprint),
+.markdown-body dd pre:not(.prettyprint),
+.markdown-body dd pre.lines:not(.prettyprint) {
   margin-left: -35px;
 }
 
