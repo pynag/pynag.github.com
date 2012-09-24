@@ -7,3 +7,8 @@
 a[name] {
 	color: #000000;
 }
+
+.markdown-body pre:not(.prettyprint) {
+	color: #fff;
+	background-color: #000;
+}

@@ -45,9 +45,9 @@
 <p>
 <ul>
 <li><strong class="emphasize"><a href="#parse">Parse</a></strong> Nagios Configuration trees</li>
-<li><strong class="emphasize">Manipulate</strong> Nagios Configurations</li>
+<li><strong class="emphasize"><a href="#manipulate">Manipulate</a></strong> Nagios Configurations</li>
+<li><strong class="emphasize"><a href="#cli">Command Line</a></strong> tool for viewing and updating Nagios Configurations</li>
 <li>Provides a <strong class="emphasize">Plugin</strong> writing framework</li>
-<li><strong class="emphasize">Command Line</strong> tool for viewing and updating Nagios Configurations</li>
 </ul>
 </p>
 
@@ -61,9 +61,42 @@
 # Get all hosts
 all_hosts = Model.Host.objects.all
 for i in all_hosts:
-    print i.host_name, i.contact_groups
-</pre>
+    print i.host_name, i.contact_groups </pre>
 
+
+<a name="manipulate"><h3>We can also change Configs!</h3></a>
+
+<p>Find all services belonging to "examplehost" and change contactgroups</p>
+<pre class="prettyprint linenums">from pynag import Model
+
+services = Model.Service.objects.filter(host_name='examplehost')
+for i in services:
+  i.contactgroups = "mycontactgroup"
+  i.save() </pre>
+
+<a name="cli"><h3>Command Line Interface</h3></a>
+
+<p><strong class="emphasize">List</strong> objects by hostname</p>
+<pre class="">$ pynag list object_type shortname where host_name="pynag.github.com"
+object_type          shortname           
+--------------------------------------------------------------------
+host                 pynag.github.com    
+service              pynag.github.com/Ping
+service              pynag.github.com/http://pynag.github.com
+service              pynag.github.com/SSH Connectivity
+----------5 objects matches search condition------------------------</pre>
+
+<br/>
+<p><strong class="emphasize">Update</strong> hostname</p>
+<pre class="">
+$ pynag update host_name="www1" where host_name="www1.example.com"
+object_type          shortname
+--------------------------------------------------------------------
+host                 pynag.github.com    
+service              pynag.github.com/Ping
+service              pynag.github.com/http://pynag.github.com
+service              pynag.github.com/SSH Connectivity
+----------5 objects matches search condition------------------------</pre>
 
       </div>
     </div>
