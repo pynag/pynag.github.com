@@ -90,13 +90,15 @@ service              pynag.github.com/SSH Connectivity
 <p><strong class="emphasize">Update</strong> hostname</p>
 <pre class="">
 $ pynag update host_name="www1" where host_name="www1.example.com"
-object_type          shortname
---------------------------------------------------------------------
-host                 pynag.github.com    
-service              pynag.github.com/Ping
-service              pynag.github.com/http://pynag.github.com
-service              pynag.github.com/SSH Connectivity
-----------5 objects matches search condition------------------------</pre>
+object_type             shortname                                
+------------------------------------------------------------------
+host                    www1.example.com                        
+service                 www1.example.com/Ping                  
+service                 www1.example.com/http://www1.example.com
+service                 www1.example.com/SSH Connectivity      
+----------4 objects matches search condition----------------------
+Update these 4 objects ? (y/N) 
+</pre>
 
       </div>
     </div>

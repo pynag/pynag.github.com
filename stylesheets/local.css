@@ -11,4 +11,5 @@ a[name] {
 .markdown-body pre:not(.prettyprint) {
 	color: #fff;
 	background-color: #000;
+	font-size: 80%;
 }
