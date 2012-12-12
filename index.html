@@ -41,6 +41,9 @@
 <p>
           <small>py, as in python. nag, as in nagios</small>
 </p>
+<p>
+<strong>Latest</strong> <strong class="emphasize"><a href="#news">0.4.8</a></strong>
+</p>
           <h4>OK, but what does it do?</h4>
 <p>
 <ul>
@@ -102,6 +105,45 @@ service                 www1.example.com/SSH Connectivity
 Update these 4 objects ? (y/N) 
 </pre>
 
+<a name="news"><h3>News</h3></a>
+
+<p><strong class="emphasize"><small>12. Dec 2012</small> Released 0.4.8</strong></p>
+<p>
+<p>We are happy to announce release 0.4.8 version of pynag.</p>
+<p>The major change in this release is the inclusion of mklivestatus interface which allows for faster access to nagios status information:</p>
+</p>
+
+<p>
+<pre class="prettyprint linenums">
+from pynag.Plugins import mk_livestatus
+livestatus = mk_livestatus()
+for service in livestatus.get_services():
+    print service['host_name'], service['description'], service['state']
+</pre>
+
+
+<h6>New Features:</h6>
+<ul>
+    <li>MK Livestatus integration in pynag.Parsers.mk_livestatus</li>
+    <li>Testing framework for plugins in scripts/plugintest</li>
+    <li>Control.Command now uses livestatus if available.</li>
+    <li>pynag.Plugins.PluginHelper() prototype</li>
+    <li>Support for Nagios plugins new threshold format</li>
+</ul>
+
+<h6>Bugfixes:</h6>
+<ul>
+    <li>New Service() objects with no host_name are not saved in None/service_description anymore.</li>
+    <li>GitEventHandler could not list files with spaces</li>
+    <li>pynag.Plugins.simple.check_range was very broken, fixed and added testing framework
+      for pynag.Plugins</li>
+    <li>Fix for correctly returning exit codes in Control.daemon()</li>
+    <li>Static file parser now skips line not in format of key=value</li>
+    <li>pynag.Parsers.status.get_hoststatus() and pynag.Parsers.status.get_servicestatus() should raise a ValueError rather than return it.</li>
+    <li>timeperiod_name and alias were incorrectly saved </li>
+    <li>Unhandled exception in contact.get_effective_services()</li>
+</ul>
+</p>
       </div>
     </div>
     <footer>
