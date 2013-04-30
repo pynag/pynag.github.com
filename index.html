@@ -14,7 +14,7 @@
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
   <script type="text/javascript" src="javascripts/script.js"></script>
 
-  <title>pynag.github.com</title>
+  <title>pynag.org</title>
   <meta name="description" content="website">
 
   <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -25,14 +25,14 @@
 
   <div class="wrapper">
     <header>
-      <h1 class="title">pynag.github.com</h1><script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+      <h1 class="title">pynag.org</h1><script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
     </header>
     <div id="container">
       <p class="tagline">Python Modules for parsing Nagios configuration and writing plugins <g:plusone></g:plusone></p>
       <div id="main" role="main">
         <div class="download-bar">
         <div class="inner">
-          <a href="https://github.com/pynag/pynag" class="code">View pynag.github.com on GitHub</a>
+          <a href="https://github.com/pynag/pynag" class="code">View pynag.org on GitHub</a>
         </div>
         <span class="blc"></span><span class="trc"></span>
         </div>
@@ -42,7 +42,7 @@
           <small>py, as in python. nag, as in nagios</small>
 </p>
 <p>
-<strong>Latest</strong> <strong class="emphasize"><a href="#news">0.4.8</a></strong>
+<strong>Latest</strong> <strong class="emphasize"><a href="#news">0.4.9</a></strong>
 </p>
 <p>
 <strong class="emphasize"><a href="https://github.com/pynag/pynag/wiki">Install Instructions</a></strong>
@@ -110,6 +110,55 @@ Update these 4 objects ? (y/N)
 
 <a name="news"><h3>News</h3></a>
 
+<p><strong class="emphasize"><small>30. Apr 2013</small> Released 0.4.9</strong></p>
+<p>
+<p>pynag 0.4.9 is out!</p>
+<p>The major changes in this release is mk-livestatus integration into the command line interface, the addition of a Parsers.LogFiles which gives API access to the Nagios logfiles:</p>
+</p>
+
+<p>
+<pre class="prettyprint linenums">
+$ pynag livestatus --get hosts --columns "name state last_state_change" --limit 10
+name                     state                last_state_change   
+--------------------------------------------------------------------------------
+Aftonian.example.com     0                    1364979198          
+Ariminum.example.com     0                    1364979198          
+Bashee.example.com       0                    1364979198          
+Bernina.example.com      0                    1364978625          
+Branchiopoda.example.com 0                    1364979198          
+CRFMP.example.com        0                    1364978626          
+Cassadaga.example.com    0                    1364979198          
+Dieri.example.com        0                    1364979198          
+Dorididae.example.com    0                    1364978627          
+Drago.example.com        0                    1364979198          
+----------10 objects matches search condition-----------------------------------
+</pre>
+
+
+<h6>New Features:</h6>
+<ul>
+    <li>pynag cli now has livestatus subcommand</li>
+    <li>pynag cli multiple changes to make it more friendly to bash scripts</li>
+    <li>pynag cli has acknowledge and downtime subcommands</li>
+    <li>pynag.Model.*.delete() now are more context aware and remove references from other objects</li>
+    <li>More features in pynag.Utils.GitRepo</li>
+    <li>Parser for retention.dat created</li>
+    <li>pynag.utils.grep_to_livestatus() to convert from pynag style filters to livestatus style filters</li>
+    <li>add_to_contactgroup() created for pynag.Model.Services, Hosts, and Contacts</li>
+    <li>New functions pynag.Utils.grep(). Model filter() will use this in the future</li>
+    <li>pynag.Model - object definitions now implement sort()</li>
+    <li>pynag.Parsers.Logfiles added to parse nagios log files</li>
+</ul>
+
+<h6>Bugfixes:</h6>
+<ul>
+    <li>Multiple doctest and unittest fixes and improvements to code quality</li>
+    <li>send_nsca - revert back to tabs instead of spaces</li>
+    <li>Fix unhandled traceback with pynag copy</li>
+    <li>Fix bug where directories with ending .cfg were parsed as files</li>
+    <li>PluginHelper fixed in accordance to <a href="http://nagiosplugins.org/rfc/new_threshold_syntax">http://nagiosplugins.org/rfc/new_threshold_syntax</a></li>
+</ul>
+</p>
 <p><strong class="emphasize"><small>12. Dec 2012</small> Released 0.4.8</strong></p>
 <p>
 <p>We are happy to announce release 0.4.8 version of pynag.</p>
