@@ -42,7 +42,7 @@
           <small>py, as in python. nag, as in nagios</small>
 </p>
 <p>
-<strong>Latest</strong> <strong class="emphasize"><a href="#news">0.4.9</a></strong>
+<strong>Latest</strong> <strong class="emphasize"><a href="#news">0.5.0</a></strong>
 </p>
 <p>
 <strong class="emphasize"><a href="https://github.com/pynag/pynag/wiki">Install Instructions</a></strong>
@@ -110,11 +110,36 @@ Update these 4 objects ? (y/N)
 
 <a name="news"><h3>News</h3></a>
 
-<p><strong class="emphasize"><small>30. Apr 2013</small> Released 0.4.9</strong></p>
+<p><strong class="emphasize"><small>28. Jun 2013</small> Released 0.5.0</strong></p>
 <p>
-<p>pynag 0.4.9 is out!</p>
-<p>The major changes in this release is mk-livestatus integration into the command line interface, the addition of a Parsers.LogFiles which gives API access to the Nagios logfiles:</p>
+<p>pynag 0.5.0 is out!</p>
+<p>Many enhancements and bugfixes, most notably towards unit testing, parsing performance and mk-livestatus tcp support</p>
+<h6>New Features:</h6>
+<ul>
+  <li>pynag cli - new action "unset" to remove attributes when updating</li>
+  <li>PluginHelper - New option --pnp-compatible-perfdata</li>
+  <li>TCP Support for mk-livestatus</li>
+  <li>ObjectDefinitions now have new method: set_macro()</li>
+  <li>Vast improvements to unit testing</li>
+  <li>Fix unhandled tracebacks if invalid templates are defined</li>
+  <li>Utils.GitRepo has new method: show()</li>
+  <li>Vast performance improvement in parsing</li>
+  <li>ObjectDefinition now iterable</li>
+  <li>New Utility Class pynag.Utils.PluginOutput</li>
+  <li>ObjectDefinition: magic fields like shortname are now part of keys()</li>
+  <li>mk_livestatus new utility methods: get_servicegroups,hostgroups,etc</li>
+</ul>
+<h6>Noteworthy bug fixes:</h6>
+<ul>
+  <li>travis-ci and coveralls.io support</li>
+  <li>Macroresolving when ARG1 contains other macros</li>
+  <li>get_suggested_filename() no longer returns filenames with invalid characters</li>
+  <li>check_range(): Always return True on invalid range_format</li>
+  <li>check_range(): raise exception on invalid input thresholds</li>
+</ul>
 </p>
+<p><strong class="emphasize"><small>30. Apr 2013</small> Released 0.4.9</strong></p>
+<p>The major changes in this release is mk-livestatus integration into the command line interface, the addition of a Parsers.LogFiles which gives API access to the Nagios logfiles:</p>
 
 <p>
 <pre class="prettyprint linenums">
